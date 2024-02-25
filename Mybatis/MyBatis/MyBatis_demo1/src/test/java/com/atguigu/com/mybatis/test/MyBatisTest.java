@@ -23,13 +23,13 @@ public class MyBatisTest {
         // 通过核心配置文件所对应的字节输入流创建工场类SqlSessionFactory,生成sqlSession对象
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
         //获取SqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
         //获取mapper接口对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         //测试功能
         int result = mapper.insertUser();
         //提交事务
-        sqlSession.commit();
+//        sqlSession.commit();
         System.out.println("result:" + result);
     }
 
