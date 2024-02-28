@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.SqlMapper">
+    <!--
+        useGeneratedKeys:设置当前标签中的sql使用了自增的主键
+        keyProperty:将自增的主键的值赋值给传输映射文件中参数的某个属性
+    -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values (null,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
+    <delete id="deletMore" parameterType="java.lang.String">
+        <!-- delete from t_user where id in (#{ids})-->
+        delete from t_user where id in (${ids})
+    </delete>
+
+    <select id="getUserByList" resultType="User" parameterType="java.lang.String">
+        <!--select * from t_user where usnename like '%${username}%'-->
+        <!--select * from t_user where username like contat('%',#{username},'%')-->
+        select * from t_user where username like "%"#{username}"%"
+    </select>
+    <select id="getUserByTableName" resultType="User">
+        select * from ${tableName}
+    </select>
+</mapper>
