@@ -82,6 +82,9 @@
         on t_emp.did = t_dept.did
         where eid = #{eid}
     </select>
+    <select id="getDepAndEmpByStepTwo" resultType="Emp">
+        select * from t_emp where eid = #{did}
+    </select>
 
     <!--    <select id="getAllEmp" resultType="Emp">-->
 <!--        &lt;!&ndash;select eid,emp_name empName,age,sex,email from t_emp&ndash;&gt;-->

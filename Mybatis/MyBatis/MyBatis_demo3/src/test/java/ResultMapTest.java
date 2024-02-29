@@ -34,6 +34,13 @@ public class ResultMapTest {
      * 2、分步查询
      */
     @Test
+    public void testGetDepAndEmpByStep(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept deptAndEmp = mapper.getDeptAndEmpByStepOne(1);
+        System.out.println(deptAndEmp);
+    }
+    @Test
     public void testDeptAndEmp(){
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);

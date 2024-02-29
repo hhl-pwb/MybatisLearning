@@ -16,5 +16,5 @@ public interface DeptMapper {
      * 通过分步查询--查询部门及部门中所有的员工信息
      * 分步查询的第一步：查询部门信息
      */
-    Dept getDeptAndEmpByStepOne(@Param("did") String did);
+    Dept getDeptAndEmpByStepOne(@Param("did") Integer did);
 }
