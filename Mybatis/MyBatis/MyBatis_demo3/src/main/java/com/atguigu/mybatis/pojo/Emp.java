@@ -2,8 +2,10 @@ package com.atguigu.mybatis.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Emp {
+public class Emp implements Serializable {
 
     private Integer eid;
     private String empName;
